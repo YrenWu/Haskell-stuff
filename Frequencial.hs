@@ -63,24 +63,3 @@ country' ic
     | ic > 0.08 && ic < 0.09    = "Dutch maybe Malaysian ?"
     | otherwise = "Can't recognize language or cipher"
 
--- todo déchiffrement vigenère
--- déchiffrement césar
--- déchiffrement substitution monoalphabétique
--- test de kasiski ?
--- longueur clé probable vigenère
-
--- Lister les lettres manquantes
-
--- Compter les bigrammmes (couples de 2 lettres)
--- Compter les trigrammmes (3 lettres)
--- Compter les N-grammes, N
-
--- Compter les lettres doublées (répétées 2 fois de suite)
-
--- Compter les longueur des mots
--- Proposer un déchiffrement statistique
-
--- stats détection chiffrement
--- analyse des digrammes
-
--- todo aller chercher le cyphertext dans un fichier?
