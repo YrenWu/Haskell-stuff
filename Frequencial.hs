@@ -74,3 +74,4 @@ data TextProperties = TextProperties { text :: String
 
 -- make an analysis for a text
 analyze text = TextProperties text (length text) (total' text) (percent' text) (friedman text) (country text)
+
