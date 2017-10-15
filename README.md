@@ -13,3 +13,6 @@ Chargement du script `:load Frequencial.hs`
 - **percent'** affichage du pourcentage avec la lettre associée
 - **friedman** calcul de l'indice de coincidence d'une chaine
 - **country'** détermine la langue potentielle en fonction de l'indice de coincidence
+### Ressources
+- http://learnyouahaskell.com/
+- http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/
