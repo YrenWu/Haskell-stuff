@@ -70,10 +70,11 @@ data TextProperties = TextProperties { text :: String
             , percentage ::  [(Char, Double)]
             , ic :: Double
             , language :: String
+            , missingChars :: [Char]
             } deriving (Show)
 
 -- make an analysis for a text
-analyze text = TextProperties text (length text) (total' text) (percent' text) (friedman text) (country text)
+analyze text = TextProperties text (length text) (total' text) (percent' text) (friedman text) (country text) (missingLetters text)
 
 missingMin :: String -> [(Char, Bool)]
 missingMin text = [(a, a `elem` text) | a <- ['a'..'z']]
@@ -81,9 +82,11 @@ missingMin text = [(a, a `elem` text) | a <- ['a'..'z']]
 missingMaj :: String -> [(Char, Bool)]
 missingMaj text = [(a, a `elem` text) | a <- ['A'..'Z']]
 
-missingLetters text = [[ arePresent a | a <- missingMin text], [arePresent b |  b <-  missingMaj text]]
+missingLetters :: String -> [Char]
+missingLetters text = [(arePresent (a, a `elem` text)) | a <- ['A'..'z']]
 
 arePresent :: (Char, Bool) -> Char
 arePresent a 
+    | (fst a) `elem` "[\\]^_`"  = '.'
     | snd a == False = fst a
     | otherwise = '.'
