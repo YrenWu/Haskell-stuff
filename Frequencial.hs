@@ -75,3 +75,15 @@ data TextProperties = TextProperties { text :: String
 -- make an analysis for a text
 analyze text = TextProperties text (length text) (total' text) (percent' text) (friedman text) (country text)
 
+missingMin :: String -> [(Char, Bool)]
+missingMin text = [(a, a `elem` text) | a <- ['a'..'z']]
+
+missingMaj :: String -> [(Char, Bool)]
+missingMaj text = [(a, a `elem` text) | a <- ['A'..'Z']]
+
+missingLetters text = [[ arePresent a | a <- missingMin text], [arePresent b |  b <-  missingMaj text]]
+
+arePresent :: (Char, Bool) -> Char
+arePresent a 
+    | snd a == False = fst a
+    | otherwise = '.'
